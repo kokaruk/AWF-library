@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3CE6742-928A-4C34-AFF8-56CCD51770F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AWFLib</RootNamespace>
+    <AssemblyName>AWFclass</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\..\Referenced Libraries\Npgsql-2.1.1-net20\Mono.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="DkkDebugWriter">
+      <HintPath>..\..\..\Dot_net_repo\MyCustom\DkkDebugWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\Dot_net_repo\Lib_repo\Npgsql-2.1.1-net20\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="RBA_Static">
+      <HintPath>..\..\..\Dot_net_repo\MyCustom\RBA_Static.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AWForder.cs" />
+    <Compile Include="AWF_newAsset.cs" />
+    <Compile Include="AWF_VariableAsset.cs" />
+    <Compile Include="DBLayer\AWFAWFDB.cs" />
+    <Compile Include="DBLayer\AWFPostgresDataLayer.cs" />
+    <Compile Include="DBLayer\AWF_DB_Log.cs" />
+    <Compile Include="DBLayer\AWF_newAsset_DB.cs" />
+    <Compile Include="DBLayer\AWF_VariableAsset_DB.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\AWF_NewStatic.cs">
+      <DependentUpon>AWF_NewStatic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\AWF_Order.cs">
+      <DependentUpon>AWF_Order.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\AWF_VASSET.cs">
+      <DependentUpon>AWF_VASSET.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema\AWF_NewStatic.xsd" />
+    <None Include="Schema\AWF_Order.xsd" />
+    <None Include="Schema\AWF_VASSET.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
